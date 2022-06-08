@@ -133,7 +133,7 @@ import 'vu3-ui/dist/vu3-ui.css'
   </div>
 </template>
 <script>
-import { ref } from '@vue/reactivity'
+import { ref } from 'vue'
 export default {
   setup () {
     const visible = ref(false)
@@ -250,6 +250,25 @@ V3Steps属性
 
 <br>
 
+```vue
+<template>
+  <div id="app">
+      <V3Steps>
+    <V3Stepsitem title="标题" desc="描述"></V3Stepsitem>
+    <V3Stepsitem title="标题" desc="描述"></V3Stepsitem>
+    <V3Stepsitem title="标题" desc="描述"></V3Stepsitem>
+    <V3Stepsitem title="标题" desc="描述"></V3Stepsitem>
+  </V3Steps>
+  </div>
+</template>
+
+<script>
+export default {
+
+}
+</script>
+
+```
 ### 菜单栏(V3TabsPanel、V3Tabs)
 
 V3TabsPanel组件属性
@@ -352,8 +371,8 @@ export default {
   setup () {
     const { proxy } = getCurrentInstance()
     const btnClick = () => {
-       proxy.confirm({ title: '提示', text: '确认删除么？' }).then(() => {
-        proxy.message({ text: '删除成功' })
+       proxy.$confirm({ title: '提示', text: '确认删除么？' }).then(() => {
+        proxy.$message({ text: '删除成功' })
       }).catch(err => {
         console.log(err)
       })
